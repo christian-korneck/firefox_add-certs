@@ -22,5 +22,5 @@ Usage
 
 Requirements
 -------------
-- the bundeled certutil.exe might require [vcredist 12.0/2013 32bit](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
+- the bundled certutil.exe might require [vcredist 12.0/2013 32bit](http://www.microsoft.com/en-us/download/details.aspx?id=40784)
 - tested with Firefox 39.0, Windows 8.1
