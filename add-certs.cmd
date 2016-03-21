@@ -2,12 +2,12 @@
 setlocal
 
 REM #### general config
-if not defined programfiles(x86) set programfiles(x86)=%programfiles%
-set firefoxdefaultprofile=%programfiles(x86)%\Mozilla Firefox\browser\defaults\Profile
-
+set programFilesWithMozilla=%programfiles%
+if not exist "%programFilesWithMozilla%\Mozilla Firefox" set programFilesWithMozilla=%programfiles(x86)%
+if not exist "%programFilesWithMozilla%\Mozilla Firefox" exit /B 1
 
 REM #### default firefox profile
-if not exist "%programfiles(x86)%\Mozilla Firefox" exit /B 1
+set firefoxdefaultprofile=%programFilesWithMozilla%\Mozilla Firefox\browser\defaults\Profile
 if not exist "%firefoxdefaultprofile%" mkdir "%firefoxdefaultprofile%"
 if not exist "%firefoxdefaultprofile%\cert8.db" copy /y "%~dp0db\empty\cert8.db" "%firefoxdefaultprofile%\" >NUL
 if not exist "%firefoxdefaultprofile%\key3.db" copy /y "%~dp0db\empty\key3.db" "%firefoxdefaultprofile%\" >NUL
