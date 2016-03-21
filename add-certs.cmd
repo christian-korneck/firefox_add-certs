@@ -1,4 +1,4 @@
-@echo off
+@if /i "%1" NEQ "-verbose" @echo off
 setlocal
 
 REM #### general config
@@ -39,9 +39,13 @@ set certfile=!certpath:%replacepath%=!
 set certfile=!certfile:.pem=!
 set certfile=!certfile:.cacert=!
 set certfile=AddedByUser !certfile!
-FOR /D %%P IN ("%%U\AppData\Roaming\Mozilla\Firefox\Profiles\*") DO "%~dp0bin\certutil.exe" -A -n "!certfile!" -i "%%C" -t "cTC,cTC,cTC", -d "%%P"
+FOR /D %%P IN ("%%U\AppData\Roaming\Mozilla\Firefox\Profiles\*") DO (
+ "%~dp0bin\certutil.exe" -A -n "!certfile!" -i "%%C" -t "cTC,cTC,cTC", -d "%%P"
+)
 ))
 setlocal DISABLEDELAYEDEXPANSION
+
+REM ####Current user
 
 setlocal ENABLEDELAYEDEXPANSION
 set replacepath=%~dp0cacert\
