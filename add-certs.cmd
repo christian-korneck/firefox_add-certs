@@ -46,7 +46,6 @@ FOR /D %%P IN ("%%U\AppData\Roaming\Mozilla\Firefox\Profiles\*") DO (
 setlocal DISABLEDELAYEDEXPANSION
 
 REM ####Current user
-
 setlocal ENABLEDELAYEDEXPANSION
 set replacepath=%~dp0cacert\
 FOR /R "%~dp0" %%C IN (cacert\*.pem) DO (
