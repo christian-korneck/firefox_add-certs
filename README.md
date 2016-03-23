@@ -16,7 +16,7 @@ The release download includes a build of the NSS `certutil.exe`.
 Usage
 -------------
 - download and extract the ZIP file from the [release page](https://github.com/christian-korneck/firefox_add-certs/releases) (includes the NSS certutil.exe binaries)
-- put all CA certificates that you want to add in the folder: `cacert\`
+- put all CA certificates that you want to add in the folder: `cacert\`. File extension needs to be `.pem`.
   - note: For testing, the CA folder includes the [CACert.org](http://www.cacert.org/) root and intermediate certificates. Remove them if you don't want to add them.
 - run `add-certs.cmd` with admin privileges
 
