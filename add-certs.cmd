@@ -14,7 +14,7 @@ if not exist "%firefoxdefaultprofile%\key3.db" copy /y "%~dp0db\empty\key3.db" "
 if not exist "%firefoxdefaultprofile%\secmod.db" copy /y "%~dp0db\empty\secmod.db" "%firefoxdefaultprofile%\" >NUL
 
 setlocal ENABLEDELAYEDEXPANSION
-set replacepath=%~dp0cacert\
+set replacepath="%~dp0cacert"\
 FOR /R "%~dp0" %%C IN (cacert\*.pem) DO (
 set certpath=%%C
 set certfile=!certpath:%replacepath%=!
@@ -28,7 +28,7 @@ setlocal DISABLEDELAYEDEXPANSION
 
 REM ####user profiles
 setlocal ENABLEDELAYEDEXPANSION
-set replacepath=%~dp0cacert\
+set replacepath="%~dp0cacert"\
 FOR /D %%U IN ("%systemdrive%\Users\*") DO (
 FOR /D %%P IN ("%%U\AppData\Roaming\Mozilla\Firefox\Profiles\*") DO if not exist "%%P\cert8.db" copy /y "%~dp0db\empty\cert8.db" "%%P\" >NUL
 FOR /D %%P IN ("%%U\AppData\Roaming\Mozilla\Firefox\Profiles\*") DO if not exist "%%P\key3.db" copy /y "%~dp0db\empty\key3.db" "%%P\" >NUL
@@ -47,7 +47,7 @@ setlocal DISABLEDELAYEDEXPANSION
 
 REM ####Current user
 setlocal ENABLEDELAYEDEXPANSION
-set replacepath=%~dp0cacert\
+set replacepath="%~dp0cacert"\
 FOR /R "%~dp0" %%C IN (cacert\*.pem) DO (
 set certpath=%%C
 set certfile=!certpath:%replacepath%=!
@@ -62,7 +62,7 @@ setlocal DISABLEDELAYEDEXPANSION
 
 REM #### postcheck (check only on default profile, not individual user profiles)
 setlocal ENABLEDELAYEDEXPANSION
-set replacepath=%~dp0cacert\
+set replacepath="%~dp0cacert"\
 FOR /R "%~dp0" %%C IN (cacert\*.pem) DO (
 set certpath=%%C
 set certfile=!certpath:%replacepath%=!
